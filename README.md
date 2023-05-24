@@ -1,34 +1,13 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Authentication template
 
-## Getting Started
+This templates doesn't have any auth provider implemented. It's just the implementation of protected views through the use of 2 HOC components
 
-First, run the development server:
+- UserLayour
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- VisitorLayout
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Each of those components have two primary functions. First is creating a templated layour for pages that are supposed to be visited by visitors or authenticated users. Lastly, it provides some logic to route users depending on their authentication status. If they're users and they go to the login page, It should redirect them to the entry point for authenticated users (private page). If they're visitors and try to visit a user page, it should kick them to login while not showing any parts of the user page. 
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+The main logic for managing the status is in the AppContext. It is pretty empty since listeners for managing authentication status and their changes is platform specific.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+I will try to created more branches off this one to implement popular cases like Firebase, Auth0 and Supabase.
